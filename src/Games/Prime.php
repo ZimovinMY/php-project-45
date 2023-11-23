@@ -15,7 +15,7 @@ function startPrimeGame()
                 $answer = 'no';
             }
         }
-	if ($question === 1) {
+        if ($question === 1) {
             $answer = 'no';
         }
         $gameData[$question] = $answer;
