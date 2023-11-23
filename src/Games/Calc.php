@@ -24,6 +24,7 @@ function startCalcGame()
                 $answer = $firstOperand * $secondOperand;
                 break;
         }
+	$gameData = [];
         $gameData[$question] = $answer;
     };
     gameInteraction($gameGreeting, $gameData);
