@@ -1,8 +1,7 @@
 <?php
+
 namespace BrainGames\Games\Even;
 
-use function cli\line;
-use function cli\prompt;
 use function BrainGames\Engine\gameInteraction;
 
 function startEvenGame()
