@@ -7,6 +7,7 @@ use function BrainGames\Engine\gameInteraction;
 function startProgressionGame()
 {
     $gameGreeting = 'What number is missing in the progression?';
+    $gameData = [];
     for ($i = 0; $i < 3; $i++) {
         $begin = rand(0, 50);
         $step = rand(1, 5);
