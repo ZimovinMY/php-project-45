@@ -7,6 +7,7 @@ use function BrainGames\Engine\gameInteraction;
 function startCalcGame()
 {
     $gameGreeting = 'What is the result of the expression?';
+    $gameData = [];
     for ($i = 0; $i < 3; $i++) {
         $firstOperand = rand(0, 50);
         $secondOperand = rand(0, 50);
@@ -24,7 +25,6 @@ function startCalcGame()
                 $answer = $firstOperand * $secondOperand;
                 break;
         }
-	$gameData = [];
         $gameData[$question] = $answer;
     };
     gameInteraction($gameGreeting, $gameData);
