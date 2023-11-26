@@ -11,7 +11,7 @@ After three correct answers, the game is considered to be completed. Wrong answe
  
 ## Requirements
 
-* php 7.1+
+* php 8.0+
 * composer 2.6.5
 * make 4.3
  
