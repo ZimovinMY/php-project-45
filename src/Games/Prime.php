@@ -4,22 +4,30 @@ namespace BrainGames\Games\Prime;
 
 use function BrainGames\Engine\gameInteraction;
 
-function startPrimeGame()
+use const BrainGames\Engine\ROUNDS_COUNT;
+
+const GREETING_TEXT = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+function startPrimeGame(): void
 {
-    $gameGreeting = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $gameData = [];
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $question = rand(1, 100);
-        $answer = 'yes';
-        for ($divisor = 2; $divisor <= $question / 2; $divisor++) {
-            if ($question % $divisor === 0) {
-                $answer = 'no';
-            }
-        }
-        if ($question === 1) {
+        $gameData[$question] = getPrimeAnswer($question);
+    };
+    gameInteraction(GREETING_TEXT, $gameData);
+}
+
+function getPrimeAnswer(int $number): string
+{
+    $answer = 'yes';
+    for ($divisor = 2; $divisor <= $number / 2; $divisor++) {
+        if ($number % $divisor === 0) {
             $answer = 'no';
         }
-        $gameData[$question] = $answer;
-    };
-    gameInteraction($gameGreeting, $gameData);
+    }
+    if ($number === 1) {
+        $answer = 'no';
+    }
+    return $answer;
 }

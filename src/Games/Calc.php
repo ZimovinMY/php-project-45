@@ -4,28 +4,30 @@ namespace BrainGames\Games\Calc;
 
 use function BrainGames\Engine\gameInteraction;
 
-function startCalcGame()
+use const BrainGames\Engine\ROUNDS_COUNT;
+
+const GREETING_TEXT = 'What is the result of the expression?';
+
+function startCalcGame(): void
 {
-    $gameGreeting = 'What is the result of the expression?';
     $gameData = [];
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $firstOperand = rand(0, 50);
         $secondOperand = rand(0, 50);
         $operators = ['+','-','*'];
         $randomOperator = $operators[rand(0, 2)];
         $question = "{$firstOperand} {$randomOperator} {$secondOperand}";
-        switch ($randomOperator) {
-            case '+':
-                $answer = $firstOperand + $secondOperand;
-                break;
-            case '-':
-                $answer = $firstOperand - $secondOperand;
-                break;
-            case '*':
-                $answer = $firstOperand * $secondOperand;
-                break;
-        }
-        $gameData[$question] = $answer;
+        $gameData[$question] = getCalcAnswer($randomOperator, $firstOperand, $secondOperand);
     };
-    gameInteraction($gameGreeting, $gameData);
+    gameInteraction(GREETING_TEXT, $gameData);
+}
+
+function getCalcAnswer(string $operator, int $firstOperand, int $secondOperand): int
+{
+    return match ($operator) {
+        '+' => $firstOperand + $secondOperand,
+        '-' => $firstOperand - $secondOperand,
+        '*' => $firstOperand * $secondOperand,
+        default => throw new Exception('There is no such operation'),
+    };
 }

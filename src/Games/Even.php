@@ -4,14 +4,21 @@ namespace BrainGames\Games\Even;
 
 use function BrainGames\Engine\gameInteraction;
 
-function startEvenGame()
+use const BrainGames\Engine\ROUNDS_COUNT;
+
+const GREETING_TEXT = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+function startEvenGame(): void
 {
-    $gameGreeting = 'Answer "yes" if the number is even, otherwise answer "no".';
     $gameData = [];
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $question = rand(0, 100);
-        $answer = $question % 2 !== 0 ? 'no' : 'yes';
-        $gameData[$question] = $answer;
+        $gameData[$question] = getEvenAnswer($question);
     };
-    gameInteraction($gameGreeting, $gameData);
+    gameInteraction(GREETING_TEXT, $gameData);
+}
+
+function getEvenAnswer(int $number): string
+{
+    return $number % 2 !== 0 ? 'no' : 'yes';
 }
