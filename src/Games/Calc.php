@@ -8,7 +8,7 @@ use const BrainGames\Engine\ROUNDS_COUNT;
 
 const GREETING_TEXT = 'What is the result of the expression?';
 
-function startCalcGame(): void
+function start(): void
 {
     $gameData = [];
     for ($i = 0; $i < ROUNDS_COUNT; $i++) {
@@ -28,6 +28,6 @@ function getCalcAnswer(string $operator, int $firstOperand, int $secondOperand):
         '+' => $firstOperand + $secondOperand,
         '-' => $firstOperand - $secondOperand,
         '*' => $firstOperand * $secondOperand,
-        default => throw new Exception('There is no such operation'),
+        default => throw new Exception('There is no such operation!'),
     };
 }

@@ -8,17 +8,18 @@ use const BrainGames\Engine\ROUNDS_COUNT;
 
 const GREETING_TEXT = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function startEvenGame(): void
+function start(): void
 {
     $gameData = [];
     for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $question = rand(0, 100);
-        $gameData[$question] = getEvenAnswer($question);
+        $gameData[$question] = isEven($question) ? 'yes' : 'no';
     };
     gameInteraction(GREETING_TEXT, $gameData);
 }
 
-function getEvenAnswer(int $number): string
+function isEven(int $number): bool
 {
-    return $number % 2 !== 0 ? 'no' : 'yes';
+
+    return $number % 2 === 0;
 }

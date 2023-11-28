@@ -3,7 +3,7 @@
 
 namespace BrainGames\Brain\Calc;
 
-use function BrainGames\Games\Calc\startCalcGame;
+use function BrainGames\Games\Calc\start;
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -13,4 +13,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-startCalcGame();
+start();

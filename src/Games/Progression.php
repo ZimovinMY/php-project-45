@@ -4,11 +4,14 @@ namespace BrainGames\Games\Progression;
 
 use function BrainGames\Engine\gameInteraction;
 
-function startProgressionGame()
+use const BrainGames\Engine\ROUNDS_COUNT;
+
+const GREETING_TEXT = 'What number is missing in the progression?';
+
+function start(): void
 {
-    $gameGreeting = 'What number is missing in the progression?';
     $gameData = [];
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $begin = rand(0, 50);
         $step = rand(1, 5);
         $end = $begin + 9 * $step;
@@ -19,5 +22,5 @@ function startProgressionGame()
         $question = implode(' ', $progression);
         $gameData[$question] = $answer;
     };
-    gameInteraction($gameGreeting, $gameData);
+    gameInteraction(GREETING_TEXT, $gameData);
 }

@@ -8,7 +8,7 @@ use function BrainGames\Cli\welcome;
 
 const ROUNDS_COUNT = 3;
 
-function gameInteraction(string $gameGreeting, array $gameData)
+function gameInteraction(string $gameGreeting, array $gameData): void
 {
     $userName = welcome();
     line($gameGreeting);
