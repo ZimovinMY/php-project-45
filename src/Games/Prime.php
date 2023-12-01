@@ -3,6 +3,7 @@
 namespace BrainGames\Games\Prime;
 
 use function BrainGames\Engine\gameInteraction;
+
 use const BrainGames\Engine\ROUNDS_COUNT;
 
 const GREETING_TEXT = 'Answer "yes" if given number is prime. Otherwise answer "no".';

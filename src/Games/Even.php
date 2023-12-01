@@ -3,6 +3,7 @@
 namespace BrainGames\Games\Even;
 
 use function BrainGames\Engine\gameInteraction;
+
 use const BrainGames\Engine\ROUNDS_COUNT;
 
 const GREETING_TEXT = 'Answer "yes" if the number is even, otherwise answer "no".';
